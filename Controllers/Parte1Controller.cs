@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using ProvaPub.Services;
+using System;
 
 namespace ProvaPub.Controllers
 {
@@ -15,12 +16,10 @@ namespace ProvaPub.Controllers
 
 		public Parte1Controller(RandomService randomService)
 		{
-			_randomService = randomService;
-		}
-		[HttpGet]
-		public int Index()
-		{
-			return _randomService.GetRandom();
-		}
+            Random aleatorio = new Random();
+            int seed = aleatorio.Next(1, 100);
+            Console.WriteLine($"O valor aleatorio eh {seed}");
+        }
+		
 	}
 }
